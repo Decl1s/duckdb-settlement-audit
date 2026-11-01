@@ -27,7 +27,8 @@ jobs:
         with:
           python-version: '3.14.10'
       - name: Я устанавливаю полное дерево по закреплённым хешам
-        run: python -m pip install --require-hashes --only-binary :all: -r requirements.lock
+        run: |
+          python -m pip install --require-hashes --only-binary :all: -r requirements.lock
       - name: Я проверяю совместимость установленных пакетов
         run: |
           python -m pip --version
