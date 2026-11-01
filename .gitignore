@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.py[cod]
+workspace/
+dist/
+AGENTS.md
+*.duckdb*
+*.lock.tmp

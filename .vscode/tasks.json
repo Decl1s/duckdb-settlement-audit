@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "01 — Я создаю CSV",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "settlement",
+        "prepare",
+        "--out",
+        "workspace/input"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "02 — Я сверяю",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "settlement",
+        "run",
+        "--orders",
+        "workspace/input/orders.csv",
+        "--payments",
+        "workspace/input/payments.csv",
+        "--out",
+        "workspace/report",
+        "--as-of",
+        "2026-11-01"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "03 — Я читаю отчёт",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "settlement",
+        "inspect",
+        "--out",
+        "workspace/report"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "04 — Я выполняю проверки",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "scripts/ci.py"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "git.openRepositoryInParentFolders": "never",
+  "editor.wordWrap": "on",
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true
+  }
+}
